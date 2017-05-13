@@ -1,0 +1,99 @@
+html, body {margin:0; padding:0;}
+
+.main-container {background: lightgray;}
+
+.foot-container {position:fixed; bottom:0; width:100%;}
+
+audio {position:absolute; bottom:0; width:100%;}
+
+.help-layer, .help-background {position:fixed; height:100%; width:100%;}
+
+.help-background {background:rgba(0,0,0,0.5);}
+
+.help-wrap {
+    position:absolute;
+    display:inline-block;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    transition: all 1s;
+    opacity:1;
+}
+
+.help-wrap.off {
+    opacity:0;
+}
+
+.help-wrap button {
+    position:absolute;
+    border-radius:5px;
+    background:lightgreen;
+    font-size:8pt;
+}
+
+.help-wrap button:focus {
+    outline:0;
+}
+
+#btnToggleHelp {
+    left:503px;
+    bottom:79px;
+    width:38px;
+    height:40px;
+}
+
+#btnTogglePlay {
+    left:209px;
+    bottom:22px;
+    width:215px;
+    height:40px;
+}
+
+#btnForward {
+    left:773px;
+    bottom:22px;
+    width:38px;
+    height:40px;
+    text-indent:-9px;
+}
+
+#btnRewind {
+    left:685px;
+    bottom:22px;
+    width:38px;
+    height:40px;
+    text-indent:-8px;
+}
+
+#btnIncStep {
+    left:729px;
+    bottom:79px;
+    width:38px;
+    height:40px;
+    text-indent:-7px;
+}
+
+#btnDecStep {
+    left:729px;
+    bottom:22px;
+    width:38px;
+    height:40px;
+    text-indent:-10px;
+}
+
+.toast {
+    display:inline-block;
+    position:fixed;
+    top:80%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    padding:10px;
+    border-radius:10px;
+    background:rgba(0,0,0,0.4);
+    transition: all 1s;
+    opacity:0;
+}
+
+.toast.on {
+    opacity:1;
+}

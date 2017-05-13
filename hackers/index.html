@@ -1,9 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>박수현 열공해라</title>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="./resource/orbitPlayer.js"></script>
+        <script src="./resource/toast.js"></script>
+        <script>
+            var player;
+            var toast;
+            
+            function toggleHelp() {
+                $('.help-layer').toggle();
+            }
+            
+            $(window).load(function(){
+                player = new OPlayer($('#player')[0]);
+                toast = new Toast($('.toast'));
+                
+                $('body').bind('keyup',function(e){
+                    console.log(e.keyCode);
+                    if (e.keyCode==191) toggleHelp();
+                    else player.control(e);
+                });
+                
+                $('.help-wrap').removeClass('off');
+            });
+            
+            
+        </script>
+        <link rel="stylesheet" type="text/css" href="./resource/style.css">
     </head>
     <body>
-        <audio controls src="./../resource/민초의난.mp4"></audio>
-        <p>hello world!</p>
+        <div></div>
+        <div class=foot-container>
+            <audio id=player controls src="./resource/민초의난.mp4"></audio>
+        </div>
+        <div class=help-layer>
+            <div class=help-background onclick="toggleHelp();"></div>
+            <div class="help-wrap off">
+                <img src="./resource/keyboard.png">
+                
+                <button id=btnToggleHelp title="도움말" onclick="toggleHelp();">Help</button>
+                <button id=btnTogglePlay title="재생/정지" onclick="player.togglePlay();">Play / Pause</button>
+                <button id=btnForward title="앞으로 step만큼 이동 (step 기본값: 5초)" onclick="player.forward()">Forward</button>
+                <button id=btnRewind title="뒤로 step만큼 이동 (step 기본값: 5초)" onclick="player.rewind()">Rewind</button>
+                <button id=btnIncStep title="재생 위치 조정 간격(step)을 1초 늘인다." onclick="player.incStep()">IncStep</button>
+                <button id=btnDecStep title="재생 위치 조정 간격(step)을 1초 줄인다." onclick="player.decStep()">DecStep</button>
+            </div>
+        </div>
+        <div class="toast">test</div>
     </body>
 </html>
